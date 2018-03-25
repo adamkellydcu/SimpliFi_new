@@ -8,7 +8,7 @@ import android.view.View;
 import android.widget.Button;
 
 /**
- * Created by Conor on 26/01/2018.
+ * Created by Adam on 26/01/2018.
  */
 
 public class SimpliFi_Login extends AppCompatActivity{
