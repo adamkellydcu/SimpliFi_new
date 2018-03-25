@@ -41,7 +41,7 @@ public class WiFISwitch extends AppCompatActivity implements OnClickListener {
 
         TextView mac = (TextView) findViewById(R.id.macaddresstext);
 
-        TurnWifion = (Button) findViewById(R.id.WiFi_ON_Buttton);
+        TurnWifion = (Button) findViewById(R.id.WiFi_ON_Button);
         TurnWifioff = (Button) findViewById(R.id.WiFi_OFF_Button);
         getTheURL = (Button) findViewById(R.id.gettheURL);
         wifistatus = (TextView) findViewById(R.id.wifistatus_textview);
