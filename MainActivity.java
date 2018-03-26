@@ -39,8 +39,8 @@ public class MainActivity extends AppCompatActivity {
         LoginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent gotoWiFISwitch = new Intent(MainActivity.this, WiFISwitch.class);
-                startActivity(gotoWiFISwitch);
+                Intent gotoregistered_devices = new Intent(MainActivity.this, registered_devices.class);
+                startActivity(gotoregistered_devices);
             }
         });
 
