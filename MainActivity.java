@@ -21,6 +21,8 @@ public class MainActivity extends AppCompatActivity {
         Button DeviceDisplay = (Button) findViewById(R.id.bt_Device_Display);
         Button ButtonRegister=(Button) findViewById(R.id.Button_Register);
         Button LoginButton = (Button)findViewById(R.id.Button_Login);
+        Button testbutton = (Button)findViewById(R.id.bt_test);
+
 //test new dfghjk
 
 
@@ -54,6 +56,14 @@ public class MainActivity extends AppCompatActivity {
               startActivity(gotoDeviceDisplay);
 
 
+            }
+        });
+
+        testbutton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent gotoWiFISwitch = new Intent(MainActivity.this, WiFISwitch.class);
+                startActivity(gotoWiFISwitch);
             }
         });
 /**
