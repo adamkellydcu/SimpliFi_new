@@ -18,33 +18,52 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Button loginButton = (Button) findViewById(R.id.bt_login_page);
-        Button ButtonLogin=(Button) findViewById(R.id.Button_Login);
-
+        Button DeviceDisplay = (Button) findViewById(R.id.bt_Device_Display);
+        Button ButtonRegister=(Button) findViewById(R.id.Button_Register);
+        Button LoginButton = (Button)findViewById(R.id.Button_Login);
 //test new dfghjk
 
 
 
-        ButtonLogin.setOnClickListener(new View.OnClickListener() {
+
+        ButtonRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent gotoLogin = new Intent(MainActivity.this, SimpliFi_Login.class);
-            startActivity(gotoLogin);
+                Intent GoToWifiControl = new Intent(MainActivity.this, SimpliFi_Login.class);
+            startActivity(GoToWifiControl);
             }
         });
 
-        loginButton.setOnClickListener(new View.OnClickListener() {
+        LoginButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent gotoWiFISwitch = new Intent(MainActivity.this, WiFISwitch.class);
+                startActivity(gotoWiFISwitch);
+            }
+        });
+
+
+
+        DeviceDisplay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 //                Intent gotoSettingspage = new Intent(MainActivity.this, SimpliFi_Settings.class);
 //                startActivity(gotoSettingspage);
 
-                Intent gotoWiFISwitch = new Intent(MainActivity.this, WiFISwitch.class);
-              startActivity(gotoWiFISwitch);
+                Intent gotoDeviceDisplay = new Intent(MainActivity.this, Simplifi_Main_Page.class);
+              startActivity(gotoDeviceDisplay);
 
 
             }
         });
+/**
+        loginOK.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent loginOK = new Intent(MainActivity.this, Simplifi_Main_Page.class);
+                startActivity(loginOK);
+            }
+        }); **/
 
  
 
