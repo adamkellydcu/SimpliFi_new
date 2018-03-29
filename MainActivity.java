@@ -5,12 +5,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.TextView;
-
-import java.io.BufferedInputStream;
-import java.io.InputStream;
-import java.net.HttpURLConnection;
-import java.net.URL;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -31,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
         ButtonRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent GoToWifiControl = new Intent(MainActivity.this, SimpliFi_Login.class);
+                Intent GoToWifiControl = new Intent(MainActivity.this, PostActivity.class);
             startActivity(GoToWifiControl);
             }
         });
@@ -49,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
         DeviceDisplay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                Intent gotoSettingspage = new Intent(MainActivity.this, SimpliFi_Settings.class);
+//                Intent gotoSettingspage = new Intent(MainActivity2.this, SimpliFi_Settings.class);
 //                startActivity(gotoSettingspage);
 
                 Intent gotoDeviceDisplay = new Intent(MainActivity.this, Simplifi_Main_Page.class);
@@ -62,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
         testbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent gotoWiFISwitch = new Intent(MainActivity.this, WiFISwitch.class);
+                Intent gotoWiFISwitch = new Intent(MainActivity.this, SimpliFi_Login.class);
                 startActivity(gotoWiFISwitch);
             }
         });
@@ -70,7 +64,7 @@ public class MainActivity extends AppCompatActivity {
         loginOK.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent loginOK = new Intent(MainActivity.this, Simplifi_Main_Page.class);
+                Intent loginOK = new Intent(MainActivity2.this, Simplifi_Main_Page.class);
                 startActivity(loginOK);
             }
         }); **/
