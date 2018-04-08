@@ -34,7 +34,7 @@ import java.util.List;
 public class PostActivity extends AppCompatActivity{
 
     String urlAddress = "http://student.computing.dcu.ie/~kella256/phpcode.php";
-    EditText nameTxt, posTxt, teamTxt;
+    EditText nameTxt, posTxt, teamTxt, macTxt;
     Button saveBtn;
 
 
@@ -51,6 +51,8 @@ public class PostActivity extends AppCompatActivity{
         posTxt = (EditText) findViewById(R.id.posEditTxt);
         teamTxt = (EditText) findViewById(R.id.teamEditTxt);
         saveBtn = (Button) findViewById(R.id.saveBtn);
+        macTxt= (EditText)findViewById(R.id.macEditTxt);
+
 
 
         saveBtn.setOnClickListener(new View.OnClickListener() {
@@ -58,7 +60,7 @@ public class PostActivity extends AppCompatActivity{
             public void onClick(View v) {
 
                 //START ASYNC TASK
-               dcu.simplifi.Sender s = new dcu.simplifi.Sender(PostActivity.this, urlAddress, nameTxt, posTxt, teamTxt);
+               dcu.simplifi.Sender s = new dcu.simplifi.Sender(PostActivity.this, urlAddress, nameTxt, posTxt, teamTxt, macTxt);
                 s.execute();
             }
         });

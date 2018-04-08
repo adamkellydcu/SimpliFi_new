@@ -1,6 +1,7 @@
 package dcu.simplifi;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
 import android.os.Bundle;
@@ -28,8 +29,10 @@ public class WiFISwitch extends AppCompatActivity implements OnClickListener {
     WifiManager wifi;
     //String server_URL = "http://www.dialfx.com/simplifi/simplifi.php";
     String server_URL = "http://student.computing.dcu.ie/~kella256/adamphp.php?variable=adam";
+    //Button location_btn=(Button) findViewById(R.id.Device1);
 
-   // WifiManager wifiManager = (WifiManager) getApplicationContext().getSystemService(Context.WIFI_SERVICE);
+
+    // WifiManager wifiManager = (WifiManager) getApplicationContext().getSystemService(Context.WIFI_SERVICE);
     //WifiInfo wInfo = wifiManager.getConnectionInfo();
     //String macAddress = wInfo.getMacAddress();
 
@@ -46,6 +49,7 @@ public class WiFISwitch extends AppCompatActivity implements OnClickListener {
         getTheURL = (Button) findViewById(R.id.gettheURL);
         wifistatus = (TextView) findViewById(R.id.wifistatus_textview);
         URL_textview = (TextView) findViewById(R.id.URL_textview);
+
         // Getting the WiFi Services
         wifi = (WifiManager) getApplicationContext().getSystemService(Context.WIFI_SERVICE);
 
@@ -97,6 +101,15 @@ public class WiFISwitch extends AppCompatActivity implements OnClickListener {
                 requestQueue.add(stringRequest);
             }
         });
+/**
+        location_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent GoToLocation = new Intent(WiFISwitch.this, location.class);
+                startActivity(GoToLocation);
+            }
+        }); **/
+
     }
 
     public void switchCommand(String response) {
@@ -141,6 +154,9 @@ public class WiFISwitch extends AppCompatActivity implements OnClickListener {
 
 
     }
+
+
+
 }
 
 

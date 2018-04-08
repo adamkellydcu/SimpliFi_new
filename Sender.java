@@ -31,9 +31,9 @@ public class Sender extends AsyncTask<Void,Void,String> {
 
     Context c;
     String urlAddress;
-    EditText nameTxt,posTxt,teamTxt;
+    EditText nameTxt,posTxt,teamTxt, macTxt;
 
-    String name,pos,team;
+    String name,pos,team,mac;
 
     ProgressDialog pd;
 
@@ -49,11 +49,15 @@ public class Sender extends AsyncTask<Void,Void,String> {
         this.nameTxt=editTexts[0];
         this.posTxt=editTexts[1];
         this.teamTxt=editTexts[2];
+        this.macTxt=editTexts[3];
+
 
         //GET TEXTS FROM EDITEXTS
         name=nameTxt.getText().toString();
         pos=posTxt.getText().toString();
         team=teamTxt.getText().toString();
+        mac=macTxt.getText().toString();
+
 
     }
     /*
@@ -97,6 +101,8 @@ public class Sender extends AsyncTask<Void,Void,String> {
             nameTxt.setText("");
             posTxt.setText("");
             teamTxt.setText("");
+            macTxt.setText("");
+
         }else
         {
             //NO SUCCESS
@@ -125,7 +131,7 @@ public class Sender extends AsyncTask<Void,Void,String> {
 
             //WRITE
             BufferedWriter bw=new BufferedWriter(new OutputStreamWriter(os,"UTF-8"));
-            bw.write(new dcu.simplifi.DataPackager(name,pos,team).packData());
+            bw.write(new dcu.simplifi.DataPackager(name,pos,team,mac).packData());
 
             bw.flush();
 
