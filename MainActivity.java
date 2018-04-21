@@ -20,8 +20,6 @@ public class MainActivity extends AppCompatActivity {
 //test new dfghjk
 
 
-
-
         ButtonRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -48,7 +46,6 @@ public class MainActivity extends AppCompatActivity {
 
                 Intent gotoDeviceDisplay = new Intent(MainActivity.this, Simplifi_Main_Page.class);
               startActivity(gotoDeviceDisplay);
-
 
             }
         });

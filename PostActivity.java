@@ -34,7 +34,7 @@ import java.util.List;
 public class PostActivity extends AppCompatActivity{
 
     String urlAddress = "http://student.computing.dcu.ie/~kella256/phpcode.php";
-    EditText nameTxt, posTxt, teamTxt, macTxt;
+    EditText nameTxt, posTxt, teamTxt;
     Button saveBtn;
 
 
@@ -48,10 +48,10 @@ public class PostActivity extends AppCompatActivity{
 
         //INITIALIZE UI FIELDS
         nameTxt = (EditText) findViewById(R.id.nameEditTxt);
-        posTxt = (EditText) findViewById(R.id.posEditTxt);
-        teamTxt = (EditText) findViewById(R.id.teamEditTxt);
+        posTxt = (EditText) findViewById(R.id.emailEditTxt);
+        teamTxt = (EditText) findViewById(R.id.passwordEditTxt);
         saveBtn = (Button) findViewById(R.id.saveBtn);
-        macTxt= (EditText)findViewById(R.id.macEditTxt);
+       // macTxt= (EditText)findViewById(R.id.macEditTxt);
 
 
 
@@ -60,19 +60,21 @@ public class PostActivity extends AppCompatActivity{
             public void onClick(View v) {
 
                 //START ASYNC TASK
-               dcu.simplifi.Sender s = new dcu.simplifi.Sender(PostActivity.this, urlAddress, nameTxt, posTxt, teamTxt, macTxt);
+               dcu.simplifi.Sender s = new dcu.simplifi.Sender(PostActivity.this, urlAddress, nameTxt, posTxt, teamTxt);
                 s.execute();
             }
         });
 
+        /*
+
         String macAddFromPhone=getMacAddr();
         String res2=macAddFromPhone.toString();
         Log.i("macaddress",res2);
-
+*/
 
     }
 
-
+/*
     public static String getMacAddr() {
         try {
             List<NetworkInterface> all = Collections.list(NetworkInterface.getNetworkInterfaces());
@@ -104,7 +106,9 @@ public class PostActivity extends AppCompatActivity{
             //handle exception
         }
         return "";
-    }
+    } */
+
+
 
 
     //INITIALIZE UI FIELDS

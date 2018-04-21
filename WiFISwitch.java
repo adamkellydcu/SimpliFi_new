@@ -24,18 +24,19 @@ import com.android.volley.toolbox.Volley;
 public class WiFISwitch extends AppCompatActivity implements OnClickListener {
 
     String serverCommand = "ON";
-    Button TurnWifion, TurnWifioff, getTheURL;
+    Button TurnWifion, TurnWifioff, getTheURL, SendMessage;
     TextView wifistatus, URL_textview;
     WifiManager wifi;
     //String server_URL = "http://www.dialfx.com/simplifi/simplifi.php";
-    String server_URL = "http://student.computing.dcu.ie/~kella256/adamphp.php?variable=adam";
+    //String server_URL = "http://student.computing.dcu.ie/~kella256/adamphp.php?variable=adam";
     //Button location_btn=(Button) findViewById(R.id.Device1);
-
+    int instructionTxt = 1;
 
     // WifiManager wifiManager = (WifiManager) getApplicationContext().getSystemService(Context.WIFI_SERVICE);
     //WifiInfo wInfo = wifiManager.getConnectionInfo();
     //String macAddress = wInfo.getMacAddress();
-
+Integer sendInstruction=9;
+String sendChildMac="empty";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,14 +50,18 @@ public class WiFISwitch extends AppCompatActivity implements OnClickListener {
         getTheURL = (Button) findViewById(R.id.gettheURL);
         wifistatus = (TextView) findViewById(R.id.wifistatus_textview);
         URL_textview = (TextView) findViewById(R.id.URL_textview);
+        SendMessage = (Button) findViewById(R.id.message_btn);
+
 
         // Getting the WiFi Services
         wifi = (WifiManager) getApplicationContext().getSystemService(Context.WIFI_SERVICE);
+        //TurnWifioff.setEnabled(true);
+        //TurnWifion.setEnabled(false);
 
        // mac.setText(macAddress);
 
         //Checking whether  Wifi is on or off
-        if (wifi.isWifiEnabled()) {
+      /*  if (wifi.isWifiEnabled()) {
             wifistatus.setText("Connected");//If WiFi is on, enable "Turn WiFi off" button.
             TurnWifioff.setEnabled(true);
             TurnWifion.setEnabled(false);
@@ -65,7 +70,7 @@ public class WiFISwitch extends AppCompatActivity implements OnClickListener {
             wifistatus.setText("Disconnected");//If WiFi is off, enable "Turn WiFi on" button.
             TurnWifion.setEnabled(true);
             TurnWifioff.setEnabled(false);
-        }
+        }*/
         TurnWifion.setOnClickListener(this);
         TurnWifioff.setOnClickListener(this);
         //getTheURL.setOnClickListener(this);
@@ -73,6 +78,8 @@ public class WiFISwitch extends AppCompatActivity implements OnClickListener {
         getTheURL.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
+                String server_URL = "http://student.computing.dcu.ie/~kella256/childform.php?Mac="+sendChildMac+"&Instruction="+sendInstruction;
+
                 final RequestQueue requestQueue = Volley.newRequestQueue(WiFISwitch.this);
                 StringRequest stringRequest = new StringRequest(Request.Method.GET, server_URL, new Response.Listener<String>() {
                     /**
@@ -114,7 +121,7 @@ public class WiFISwitch extends AppCompatActivity implements OnClickListener {
 
     public void switchCommand(String response) {
         Log.i("switchCommand ", response);
-        if (serverCommand == response) {
+        /*if (serverCommand == response) {
 
             Log.i("switchCommand ", "servercommand= " + serverCommand);
             wifi.setWifiEnabled(true);// Enabling WiFi
@@ -130,7 +137,7 @@ public class WiFISwitch extends AppCompatActivity implements OnClickListener {
             TurnWifioff.setEnabled(false);
             wifistatus.setText("Disconnected");
 
-        }
+        }*/
     }
 
 
@@ -139,21 +146,41 @@ public class WiFISwitch extends AppCompatActivity implements OnClickListener {
 
         if (TurnWifion.isPressed())    //If "Turn WiFi on" button is Pressed
         {
-            wifi.setWifiEnabled(true);// Enabling WiFi
+
+
+sendInstruction=1;
+sendChildMac="02:00:00:44:55:66";
+            /*wifi.setWifiEnabled(true);// Enabling WiFi
             TurnWifioff.setEnabled(true);
             TurnWifion.setEnabled(false);
-            wifistatus.setText("Connected");
+            wifistatus.setText("Connected");*/
         }
         if (TurnWifioff.isPressed())   //If "Turn WiFi off" button is Pressed
         {
-            wifi.setWifiEnabled(false); //Disabling WiFi
+
+          sendInstruction=0;
+          sendChildMac="02:00:00:44:55:66";
+
+           /* wifi.setWifiEnabled(false); //Disabling WiFi
             TurnWifion.setEnabled(true);
             TurnWifioff.setEnabled(false);
-            wifistatus.setText("Disconnected");
+            wifistatus.setText("Disconnected");*/
+        }
+        if (SendMessage.isPressed())   //If "Turn WiFi off" button is Pressed
+        {
+
+            //START ASYNC TASK
+            ////dcu.simplifi.Sender s = new dcu.simplifi.Sender(WiFISwitch.this, instructionTxt);
+           // s.execute();
+
+
+
         }
 
 
+
     }
+
 
 
 

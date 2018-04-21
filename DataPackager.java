@@ -20,16 +20,15 @@ package dcu.simplifi;
  */
 public class DataPackager {
 
-    String name,position,team, mac;
+    String name,position,team;
 
     /*
     SECTION 1.RECEIVE ALL DATA WE WANNA SEND
      */
-    public DataPackager(String name, String position, String team, String mac) {
+    public DataPackager(String name, String position, String team) {
         this.name = name;
         this.position = position;
         this.team = team;
-        this.mac = mac;
     }
 
     /*
@@ -47,7 +46,6 @@ public class DataPackager {
             jo.put("Name",name);
             jo.put("Position",position);
             jo.put("Team",team);
-            jo.put("Mac",mac);
 
 
             Boolean firstValue=true;
